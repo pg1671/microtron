@@ -3,7 +3,6 @@ __import__('pkg_resources').declare_namespace(__name__)
 import isodate, re, os
 import lxml.etree
 
-
 class ParseError(Exception):
     def __init__(self, message, sourceline=None):
         Exception.__init__(self, message)
@@ -140,11 +139,13 @@ class Parser(object):
 
                         elif prop_type == 'date':
                             value['text'] = self._parse_text(prop_node)
-                            value['date'] = isodate.parse_date(self._parse_value(prop_node))
+                            parsed_value = self._parse_value(prop_node)
+                            value['date'] = isodate.parse_date(parsed_value) if parsed_value else None
 
                         elif prop_type == 'datetime':
                             value['text'] = self._parse_text(prop_node)
-                            value['datetime'] = isodate.parse_datetime(self._parse_value(prop_node))
+                            parsed_value = self._parse_value(prop_node)
+                            value['datetime'] = isodate.parse_datetime(parsed_value) if parsed_value else None
 
                         else:
                             # Try to parse this property as a sub-format
