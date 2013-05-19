@@ -116,6 +116,18 @@
         <version/>
         <worst/>
     </hreview>
+    <hreview-aggregate type="compound">
+        <count/>
+        <item mandatory="yes" couldbe="vcard|vevent">
+            <fn mandatory="yes"/>
+            <photo type="image"/>
+            <url type="url"/>
+        </item>
+        <photo type="image"/>
+        <rating/>
+        <summary type="text"/>
+        <votes/>
+    </hreview-aggregate>
     <hlisting type="compound">
         <description type="text" mandatory="yes"/>
         <dtexpired type="date"/>
