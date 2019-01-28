@@ -155,7 +155,7 @@ class Parser(object):
                             else:
                                 raise Exception("Could not parse expected format: '%s'" % (prop_type,))
 
-                except Exception, e:
+                except Exception as e:
                     if self.strict:
                         err = ParseError("Error parsing value for property '%s': %s" % (prop_name, e), sourceline=prop_node.sourceline)
                         if self.collect_errors:
