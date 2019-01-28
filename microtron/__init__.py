@@ -167,7 +167,7 @@ class Parser(object):
                         value = self._parse_value(prop_node)
 
                 # Convert the value to a string (if it isn't one already)
-                if isinstance(value, basestring):
+                if isinstance(value, str):
                     value_text = value
                 elif 'text' in value:
                     value_text = value['text']
